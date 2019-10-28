@@ -249,6 +249,8 @@ describe("basics", function() {
             // By observing their casting behavior in the tests below, you can find
             // out the required types.
             // ✏️ ADD CODE HERE ✏️
+            const firstVariable = 3;
+            const secondVariable = "1";
 
             ////////////////////////////////////////////////////////////////////
 
@@ -266,7 +268,7 @@ describe("basics", function() {
             ////////////////////////////////////////////////////////////////////
             // Can you find a string that casts to `false` in an if() statement?
             // ✏️ ADD CODE HERE ✏️
-
+            const falsyString=""
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof falsyString).to.equal("string");
@@ -283,6 +285,8 @@ describe("basics", function() {
             ////////////////////////////////////////////////////////////////////
             // Can you find two different numbers that each cast to `false` in an if() statement?
             // ✏️ ADD CODE HERE ✏️
+           const falsyNumber1=NaN;
+           const falsyNumber2=0;
 
             ////////////////////////////////////////////////////////////////////
 
@@ -307,7 +311,7 @@ describe("basics", function() {
             ////////////////////////////////////////////////////////////////////
             // Can you find a value that is typeof "object" but also casts to `false`?
             // ✏️ ADD CODE HERE ✏️
-
+           const falsyThing=null;
             ////////////////////////////////////////////////////////////////////
 
             expect(typeof falsyThing).to.equal("object");
@@ -337,7 +341,7 @@ describe("basics", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            propertyName="secondProperty";
             ////////////////////////////////////////////////////////////////////
 
             // That's the same property access as above, but now we get back
@@ -352,7 +356,8 @@ describe("basics", function() {
             // You can create objects that reference themselves.
             // But you need two steps to do it.
             // ✏️ ADD CODE HERE ✏️
-
+            const object={};
+            object.object=object;
             ////////////////////////////////////////////////////////////////////
 
             expect(object.object).to.equal(object);
