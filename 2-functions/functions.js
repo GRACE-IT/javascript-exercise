@@ -14,7 +14,7 @@ describe("functions", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ ADD CODE HERE ✏️
-
+            function myFunction() {}
             ////////////////////////////////////////////////////////////////////
         });
     });
@@ -26,8 +26,9 @@ describe("functions", function() {
             }).to.throw("Cannot access 'myFunction' before initialization");
 
             ////////////////////////////////////////////////////////////////////
-            // ✏️ ADD CODE HERE ✏️
-
+            // ✏️ ADD CODE HERE✏️
+        const myFunction = function () {}
+        
             ////////////////////////////////////////////////////////////////////
 
             myFunction(); // myFunction should be callable now
@@ -39,8 +40,9 @@ describe("functions", function() {
             function myFunction() {}
 
             ////////////////////////////////////////////////////////////////////
-            // ✏️ ADD CODE HERE ✏️
-
+            // ✏️ ADD CODE HERE ✏️ 
+const otherFunction = () =>{}
+myFunction = otherFunction;
             ////////////////////////////////////////////////////////////////////
 
             if (myFunction !== otherFunction) {
@@ -57,7 +59,7 @@ describe("functions", function() {
 
             ////////////////////////////////////////////////////////////////////
             // ✏️ EDIT LINE BELOW ✏️
-            myFunction(); // why is myFunction not callable?
+            otherFunction(); // why is myFunction not callable?
             ////////////////////////////////////////////////////////////////////
         });
     });
@@ -72,7 +74,7 @@ describe("functions", function() {
             // Declare a constant 'answer' with the correct result.
             // If you call getContext() here, you're a cheater! :)
             // ✏️ ADD CODE HERE ✏️
-
+let answer;
             ////////////////////////////////////////////////////////////////////
 
             const result = getContext(); // <--- called without explicit context
@@ -96,7 +98,9 @@ describe("functions", function() {
             // and 'answerThirdResult' with the correct results.
             // If you call getContext() here, you're a cheater! :)
             // ✏️ ADD CODE HERE ✏️
-
+            const answerFirstResult = getContext();
+            const answerSecondResult = getContext.call(context);
+            const answerThirdResult = getContext();
             ////////////////////////////////////////////////////////////////////
 
             // First we call the function without an explicit context
@@ -134,7 +138,8 @@ describe("functions", function() {
             // and 'answerSecondResult' with the correct results.
             // If you call getContext() here, you're a cheater! :)
             // ✏️ ADD CODE HERE ✏️
-
+            const answerFirstResult = object.getContext();
+            const answerSecondResult = differentObject.getContext();
             ////////////////////////////////////////////////////////////////////
 
             // First we call the function on an object
@@ -165,7 +170,7 @@ describe("functions", function() {
             // You're not allowed to define a new function here.
             // If you call getContext() here, you're a cheater! :)
             // ✏️ ADD CODE HERE ✏️
-
+            getContext = getContext.bind(differentContext)
             ////////////////////////////////////////////////////////////////////
 
             const result = getContext.call(context);
@@ -196,7 +201,7 @@ describe("functions", function() {
             // Is there something even stronger than .bind()?
             // Find a way to call getContext(), but with a different context than 'context'.
             // ✏️ EDIT LINE BELOW ✏️
-            const result = getContext();
+            const result = new getContext();
             ////////////////////////////////////////////////////////////////////
 
             if (result === context) {
@@ -218,7 +223,7 @@ describe("functions", function() {
                 // Unfortunately, it does not specify any parameters.
                 // Find a way to retrieve the first argument without specifying a parameter.
                 // ✏️ ADD CODE HERE ✏️
-
+                return arguments[0];
                 ////////////////////////////////////////////////////////////////////
             }
 
@@ -241,7 +246,7 @@ describe("functions", function() {
                 // Find a way to retrieve the number from here.
                 // You should not write any if's here. It should work for all possible numbers.
                 // ✏️ ADD CODE HERE ✏️
-
+                    return arguments.length;
                 ////////////////////////////////////////////////////////////////////
             }
 
@@ -273,7 +278,7 @@ describe("functions", function() {
                 // This means that we can't change it.
                 // Is there a way to still make 'myConst' equal true here?
                 // ✏️ ADD CODE HERE ✏️
-
+                var myConst = true;
                 ////////////////////////////////////////////////////////////////////
 
                 if (myConst !== true) {
@@ -296,7 +301,7 @@ describe("functions", function() {
                     // However, in this exercise you're only allowed to add code here.
                     // Is there a way to define a variable in a way that the code above will work?
                     // ✏️ ADD CODE HERE ✏️
-
+                    var myVariable = undefined;
                     ////////////////////////////////////////////////////////////////////
                 }
             }
@@ -310,7 +315,7 @@ describe("functions", function() {
             ////////////////////////////////////////////////////////////////////
             // Can you implement a function 'myFunction' that returns a function?
             // ✏️ ADD CODE HERE ✏️
-
+            function myFunction(){return ()=>{};}
             ////////////////////////////////////////////////////////////////////
 
             const result = myFunction();
@@ -329,7 +334,7 @@ describe("functions", function() {
             ////////////////////////////////////////////////////////////////////
             // Can you implement a function 'myFunction' that returns a reference to itself?
             // ✏️ ADD CODE HERE ✏️
-
+            function myFunction(){return myFunction;}
             ////////////////////////////////////////////////////////////////////
 
             const result = myFunction();
@@ -350,7 +355,7 @@ describe("functions", function() {
                 // Uh-oh, the function 'breakTheLoop' calls itself recursively (see below).
                 // There are two possible solutions that break the loop. Can you find both?
                 // ✏️ ADD CODE HERE ✏️
-
+                function breakTheLoop(){}
                 ////////////////////////////////////////////////////////////////////
 
                 breakTheLoop(); // Recursive call
@@ -366,7 +371,11 @@ describe("functions", function() {
             // Can you implement a function 'myFunction' that returns a function
             // which returns the number of arguments of 'myFunction' when called?
             // ✏️ ADD CODE HERE ✏️
-
+            function myFunction()
+            {
+                const length =arguments.length;
+                return ()=>{return length;}
+            }
             ////////////////////////////////////////////////////////////////////
 
             // Look at that strange code: myFunction()().
@@ -408,7 +417,7 @@ describe("functions", function() {
             // Can you implement a function that takes a function as an argument,
             // executes it and returns the result?
             // ✏️ ADD CODE HERE ✏️
-
+            passMeAFunction(()=>{});
             ////////////////////////////////////////////////////////////////////
 
             if (hasBeenCalled === false) {
@@ -423,7 +432,7 @@ describe("functions", function() {
             // Can you implement a function that takes a function as an argument,
             // executes it and returns the result?
             // ✏️ ADD CODE HERE ✏️
-
+            function myFunction(func){return func();}
             ////////////////////////////////////////////////////////////////////
 
             // Now we're calling 'myFunction' and we're passing a function as an argument.
@@ -455,7 +464,13 @@ describe("functions", function() {
             //   - the first argument being the element in the array
             //   - the second argument being the current index in the array
             // ✏️ ADD CODE HERE ✏️
+            function forEach(fn,arr)
+            {
+                for (let i=0; i < arr.length; i++ ){
+                    fn(arr[i],i);
 
+                }
+            }
             ////////////////////////////////////////////////////////////////////
 
             // To test your implementation, we capture all arguments passed to 'fn'
@@ -512,7 +527,14 @@ describe("functions", function() {
             // - stores the result of 'fn' in an array at the current position
             // - returns the array with results in the end
             // ✏️ ADD CODE HERE ✏️
+                function map(fn,arr) {
+                    const results = new Array(arr.length);
+                    for (let i = 0;i< arr.length; i++) {
+                        results[i] = fn(arr[i],i);
 
+                    }
+                    return results;
+                }
             ////////////////////////////////////////////////////////////////////
 
             let results;
@@ -602,7 +624,7 @@ describe("functions", function() {
 
             // Now we're registering the service.handleEvent method so that
             // it will be called as soon as the event is emitted.
-            eventEmitter.addEventListener(service.handleEvent);
+            eventEmitter.addEventListener(service.handleEvent.bind(service));
             // Now let's emit the event. However, this will fail.
             // Find the reason why and fix it.
             eventEmitter.emit();
@@ -656,7 +678,7 @@ describe("functions", function() {
                     return function() {
                         this.doSomething();
                         this.doAnotherThing();
-                    };
+                    }.bind(this);
                 },
                 doSomething: function() {},
                 doAnotherThing: function() {}
@@ -677,7 +699,7 @@ describe("functions", function() {
             function calculateSum() {
                 let result = 0;
 
-                arguments.forEach(function(number) {
+                Array.from(arguments).forEach(function(number) {
                     result = result + number;
                 });
 
